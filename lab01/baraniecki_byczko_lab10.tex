@@ -1,0 +1,111 @@
+%!TEX program = xelatex
+%Template created by: Maciej Byczko
+\documentclass[a4paper,12pt]{extarticle}  %typ dokumentu
+
+\usepackage{geometry} %poprawienie marginesów
+\usepackage{polski} %polskie znaki
+\usepackage{graphicx} %grafiki
+\usepackage{float} %poprawienie pozycji
+\usepackage{fancyhdr} % header i footer
+\usepackage{listings}
+\usepackage{xcolor}
+\graphicspath{{pictures/}}
+\geometry{margin=0.7in}
+\pagestyle{fancy}
+\cfoot{Strona \thepage}
+\rhead{Strona \thepage}
+\lhead{\typdoc}
+\setlength{\headheight}{15pt}
+
+\title{\tytul \\ \small{\opis}}
+\author{\tworcy}
+\date{\data}
+
+%-----------------------SEKCJA DANYCH----------------------------------
+\def\tytul{USB, DirectInput} %<<< tytuł ćwiczenia
+\def\nrcw{laboratoria 10} %<<< numer ćwiczenia
+\def\data{\today} %<< data wykonania
+\def\prowadzacy{Dr inż. Dominik Żelazny} %<<<prowadzący
+\def\nrgrupy{D} %<<<numer grupy
+\def\tworcy{Baraniecki Karol\\Byczko Maciej} %<<< autorzy
+\def\zajinfo{PT 16:30 TP} %<<< informacje dotyczące zajęć
+\def\typdoc{Sprawozdanie} %<<< typ dokumentu tj Sprawozdanie, zadania itp. {Matematyka dyskretna/Sprawozdanie z Miernictwa}
+\def\opis{} %<<< opis który będzie umieszczony pod tytułem w Maketitle
+%----------------------------------------------------------------------
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{AO}{rgb}{0,0.5,0}
+\definecolor{ZeroBlue}{rgb}{0,0.28,0.73}
+\definecolor{DarkRed}{rgb}{0.85,0.16,0.16}
+
+
+\lstset{
+breaklines=true,
+language=Python,
+numbers=left,
+tabsize=2,
+numberstyle=\tiny,
+backgroundcolor=\color{backcolour},
+breakatwhitespace=false,
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,
+commentstyle=\color{gray},
+keywordstyle=\color{ZeroBlue},
+% keywordstyle={[2]\color{DarkRed}},
+% keywordstyle={[3]\color{ZeroBlue}},
+}
+
+\begin{document}
+%-------------------------------------TABELA-DANYCH--------------------------------------------------
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|}\hline
+			\begin{tabular}[c]{@{}c@{}}                     \tworcy     \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Prowadzący:\\        \prowadzacy \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Numer ćwiczenia\\    \nrcw       \end{tabular}          \\ \hline
+			\begin{tabular}[c]{@{}c@{}}                     \zajinfo    \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Temat ćwiczenia:\\   \tytul      \end{tabular} & Ocena: \\ \hline
+			\begin{tabular}[c]{@{}c@{}}Grupa:\\          \nrgrupy    \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Data wykonania:\\    \data       \end{tabular} &        \\ \hline
+		\end{tabular}}
+\end{table}
+%----------------------------------------------------------------------------------------------------
+\section{Zadania do opracowania}
+Teoretyczny opis elementów używanych do bezpośredniej kontroli (Direct Input)
+\subsection{USB w Windows}
+\subsubsection{Warstwa HAL i HEL}
+HAL - Hardware Abstraction Layer, "nieprzenośna" część jądra NT.\\
+HEL - Hardware Emulation Library, jak sama nazwa mówi, służy do emulacji urządzeń, problem ze znalezieniem dokumentacji, raczej już nie używana.
+\subsubsection{Standard USB oraz USB 2.0}
+USB - Universal Serial Bus, po polsku Uniwersalna Magistrala Szeregowa, uniwersalny interfejs komunikacyjny typu plug and play.
+Obecnie najnowszą wersją jest USB 3.2 wyprodukowany w 2017 roku.
+\section{Zadania do wykonania}
+\begin{enumerate}
+	\item Napisać program, odczytujący nazwę zainstalowanego joysticka
+	\item Napisać program ilustrujący działanie joysticka: stwierdzający naciśnięcie myszy, zmianę położenia drążka (w przestrzeni 2D) oraz suwaka.
+	\item Napisać program zastępujący działanie myszy. Program ma umożliwiać sterowanie kursorem za pomocą joysticka oraz obsługę przycisków fire jako kliknięć myszy.
+	\item Napisać program realizujący prosty edytor graficzny - rysowanie przy pomocy Joysticka
+\end{enumerate}
+\subsection{Odczytywanie nazwy joysticka}
+\begin{lstlisting}
+pygame.joystick.init()
+pad = pygame.joystick.Joystick(0)
+pad_name = pad.get_name()
+\end{lstlisting}
+\subsection{Kontrola myszki za pomocą joysticka}
+Do wykonania tego zadania wykorzystaliśmy biblioteki \emph{Mouse} oraz \emph{PyGame}
+\lstinputlisting{mouse_joystick_control.py}
+\cleardoublepage
+\subsection{Paint}
+\subsection{odczytanie nazwy zainstalowanego joysticka}
+\lstinputlisting{direct.py}
+\subsubsection{Dowód działania programu graficznego}
+\begin{figure}[H]
+   \centering
+   \resizebox*{\textwidth}{!}{
+	  \includegraphics{program.png}
+   }
+\end{figure}
+\end{document}
