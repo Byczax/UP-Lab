@@ -1,0 +1,101 @@
+%!TEX program = xelatex
+%Template created by: Maciej Byczko
+\documentclass[a4paper,12pt]{extarticle}  %typ dokumentu
+
+\usepackage{geometry} %poprawienie marginesów
+\usepackage{polski} %polskie znaki
+\usepackage{graphicx} %grafiki
+\usepackage{float} %poprawienie pozycji
+\usepackage{fancyhdr} % header i footer
+\usepackage{listings}
+\usepackage{xcolor}
+\graphicspath{{pictures/}}
+\geometry{margin=0.7in}
+\pagestyle{fancy}
+\cfoot{Strona \thepage}
+\rhead{Strona \thepage}
+\lhead{\typdoc}
+\setlength{\headheight}{15pt}
+
+\title{\tytul \\ \small{\opis}}
+\author{\tworcy}
+\date{\data}
+
+%-----------------------SEKCJA DANYCH----------------------------------
+\def\tytul{Analizator parametrów sieci - EMA-90N} %<<< tytuł ćwiczenia
+\def\nrcw{laboratoria 18} %<<< numer ćwiczenia
+\def\data{\today} %<< data wykonania
+\def\prowadzacy{Dr inż. Dominik Żelazny} %<<<prowadzący
+\def\nrgrupy{D} %<<<numer grupy
+\def\tworcy{Baraniecki Karol\\Byczko Maciej} %<<< autorzy
+\def\zajinfo{PT 16:30 TP} %<<< informacje dotyczące zajęć
+\def\typdoc{Sprawozdanie} %<<< typ dokumentu tj Sprawozdanie, zadania itp. {Matematyka dyskretna/Sprawozdanie z Miernictwa}
+\def\opis{} %<<< opis który będzie umieszczony pod tytułem w Maketitle
+%----------------------------------------------------------------------
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{AO}{rgb}{0,0.5,0}
+\definecolor{ZeroBlue}{rgb}{0,0.28,0.73}
+\definecolor{DarkRed}{rgb}{0.85,0.16,0.16}
+
+
+\lstset{
+breaklines=true,
+language=Python,
+numbers=left,
+tabsize=2,
+numberstyle=\tiny,
+backgroundcolor=\color{backcolour},
+breakatwhitespace=false,
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,
+commentstyle=\color{gray},
+keywordstyle=\color{ZeroBlue},
+% keywordstyle={[2]\color{DarkRed}},
+% keywordstyle={[3]\color{ZeroBlue}},
+}
+
+\begin{document}
+%-------------------------------------TABELA-DANYCH--------------------------------------------------
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|}\hline
+			\begin{tabular}[c]{@{}c@{}}                     \tworcy     \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Prowadzący:\\        \prowadzacy \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Numer ćwiczenia\\    \nrcw       \end{tabular}          \\ \hline
+			\begin{tabular}[c]{@{}c@{}}                     \zajinfo    \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Temat ćwiczenia:\\   \tytul      \end{tabular} & Ocena: \\ \hline
+			\begin{tabular}[c]{@{}c@{}}Grupa:\\          \nrgrupy    \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Data wykonania:\\    \data       \end{tabular} &        \\ \hline
+		\end{tabular}}
+\end{table}
+%----------------------------------------------------------------------------------------------------
+\section{Zadania do opracowania}
+\subsection{Sieć elektryczna}
+\begin{itemize}
+	\item napięcie - różnica potencjałów elektrycznych między dwoma punktami obwodu elektrycznego lub pola elektrycznego.
+	\item prąd - uporządkowany ruch ładunków elektrycznych
+	\item moc czynna - część mocy, którą odbiornik pobiera ze źródła i zamienia na pracę lub ciepło.
+	\item moc bierna - wielkość opisująca pulsowanie energii elektrycznej między elementami obwodu elektrycznego.
+	\item cos($\phi$) - Współczynnik mocy, stosunek mocy czynnej do mocy pozornej, czyli stosunek mocy użytecznej do iloczynu napięcia i prądu. 
+	% \item harmoniczna prądu
+\end{itemize}
+\subsection{Ethernet}
+\begin{itemize}
+	\item IP (Internet Protocol) - protokół komunikacyjny warstwy sieciowej modelu OSI (warstwy internetu w modelu TCP/IP).
+	\item Maska - liczba służąca do wyodrębnienia w adresie IP części będącej adresem podsieci i części, która jest adresem hosta w tej podsieci. 
+	\item Brama domyślna - router, do którego komputery sieci lokalnej mają wysyłać pakiety o ile nie powinny być one kierowane w sieć lokalną lub do innych, znanych im routerów.
+	\item DHCP (Dynamic Host Configuration Protocol) - protokół komunikacyjny umożliwiający hostom uzyskanie od serwera danych konfiguracyjnych, np. adresu IP hosta, adresu IP bramy sieciowej, adresu serwera DNS, maski podsieci.
+\end{itemize}
+\subsection{Protokół modbus TCP/IP}
+Modbus to popularny protokół komunikacyjny w którym komunikacja między urządzeniami realizowana jest w architekturze master-slave/client-server. 
+Jest to protokół typu otwartego, co oznacza iż wszystkie niezbędne informacje do jego implementacji są ogólnodostępne.
+% \subsection{Bezpieczeństwo pracy z prądem}
+
+\section{Zadania do wykonania}
+Połączyć urządzenie EMA-90N z komputerem za pomocą komunikacji Ethernet
+Uruchomić aplikację demonstracyjną i połączyć się z urządzaniem odczytując napięcie i prąd na L1
+Napisać aplikację w C#, która połączy się z urządzeniem i umożliwi odczytanie napięcia i prądu L1 z użyciem protokołu modbus.
+\end{document}
