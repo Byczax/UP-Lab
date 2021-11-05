@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.10.14)  15 OCT 2021 18:13
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.10.24)  25 OCT 2021 20:42
 entering extended mode
 **d:/Documents/Programming/V-Semester/UP-Lab/lab01/baraniecki_byczko_lab10.tex
 (d:/Documents/Programming/V-Semester/UP-Lab/lab01/baraniecki_byczko_lab10.tex
 LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-08-27>
+L3 programming layer <2021-10-18>
 (C:\Users\byczq\AppData\Local\Programs\MiKTeX\tex/latex/extsizes\extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
 (C:\Users\byczq\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
@@ -145,7 +145,7 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (C:\Users\byczq\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-xet
 ex.def
-File: l3backend-xetex.def 2021-08-04 L3 backend support: XeTeX
+File: l3backend-xetex.def 2021-10-18 L3 backend support: XeTeX
  ()
 \c__kernel_sys_dvipdfmx_version_int=\count198
 \l__color_backend_stack_int=\count199
@@ -218,22 +218,22 @@ LaTeX Font Info:    ... okay on input line 59.
 \c@lstlisting=\count271
 LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <6> on input line 72.
-(mouse_joystick_control.py [1
+[1
 
-]) [2] (direct.py [3
+] (mouse_joystick_control.py [2]) [3] (direct.py [4
 
 ])
 File: program.png Graphic file (type bmp)
 <program.png>
- [4] [5]
+ [5] [6]
 (baraniecki_byczko_lab10.aux) ) 
 Here is how much of TeX's memory you used:
- 3711 strings out of 411295
- 54478 string characters out of 2831840
- 734796 words of memory out of 3000000
- 24109 multiletter control sequences out of 15000+600000
+ 3714 strings out of 411275
+ 54583 string characters out of 2831197
+ 735038 words of memory out of 3000000
+ 24132 multiletter control sequences out of 15000+600000
  406904 words of font info for 47 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 57i,15n,66p,288b,1562s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,15n,66p,385b,1562s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on baraniecki_byczko_lab10.pdf (5 pages).
+Output written on baraniecki_byczko_lab10.pdf (6 pages).
