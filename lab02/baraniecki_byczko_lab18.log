@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.11.4)  4 NOV 2021 23:49
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2021.11.4)  5 NOV 2021 18:40
 entering extended mode
 **d:/Documents/Programming/V-Semester/UP-Lab/lab02/baraniecki_byczko_lab18.tex
 (d:/Documents/Programming/V-Semester/UP-Lab/lab02/baraniecki_byczko_lab18.tex
@@ -155,31 +155,31 @@ File: l3backend-xetex.def 2021-10-18 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count268
 \g__pdf_backend_annotation_int=\count269
 \g__pdf_backend_link_int=\count270
-)
-No file baraniecki_byczko_lab18.aux.
+) (baraniecki_byczko_lab18.aux)
 \openout1 = `baraniecki_byczko_lab18.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5
-9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6
+1.
+
 (C:\Users\byczq\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -217,26 +217,40 @@ LaTeX Font Info:    ... okay on input line 59.
 
 \c@lstlisting=\count271
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 72.
-d:/Documents/Programming/V-Semester/UP-Lab/lab02/baraniecki_byczko_lab18.tex:10
-0: You can't use `macro parameter character #' in horizontal mode.
-l.100 Napisać aplikację w C#
-                            , która połączy się z urządzeniem i umożliwi odc...
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
+(Font)              <6> on input line 74.
 [1
+
+]
+File: readFromApp.png Graphic file (type bmp)
+<readFromApp.png>
+File: connection.png Graphic file (type bmp)
+<connection.png>
+File: zaj2.png Graphic file (type bmp)
+<zaj2.png>
+ [2] [3]
+File: zaj2lamp.png Graphic file (type bmp)
+<zaj2lamp.png>
+File: app2lamp.png Graphic file (type bmp)
+<app2lamp.png>
+File: zaj2.png Graphic file (type bmp)
+<zaj2.png>
+File: app2laptop.png Graphic file (type bmp)
+<app2laptop.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--172
+
+ []
+
+[4
 
 ] (baraniecki_byczko_lab18.aux) ) 
 Here is how much of TeX's memory you used:
- 3482 strings out of 411275
- 51942 string characters out of 2831198
- 572059 words of memory out of 3000000
- 23918 multiletter control sequences out of 15000+600000
+ 3536 strings out of 411275
+ 52832 string characters out of 2831198
+ 571124 words of memory out of 3000000
+ 23961 multiletter control sequences out of 15000+600000
  406880 words of font info for 44 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,15n,66p,323b,284s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on baraniecki_byczko_lab18.pdf (1 page).
+Output written on baraniecki_byczko_lab18.pdf (4 pages).
