@@ -9,6 +9,7 @@
 \usepackage{fancyhdr} % header i footer
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{hyperref}
 \graphicspath{{pictures/}}
 \geometry{margin=0.7in}
 \pagestyle{fancy}
@@ -76,22 +77,73 @@ keepspaces=true,
 %----------------------------------------------------------------------------------------------------
 \section{Zagadnienia do opracowania}
 \subsection{Zasady korzystania z WinXP SP2 Api (nie z portu szeregowego !!!!!!)}
+SP2 (Service Pack 2) API - Niestety nigdzie nie mogliśmy znaleźć informacji na ten temat.
 \subsection{MS Platform SDK}
+zestaw do tworzenia oprogramowania (SDK) firmy Microsoft, który zawiera dokumentację, 
+pliki nagłówkowe, biblioteki, próbki i narzędzia wymagane do tworzenia aplikacji dla systemu Microsoft Windows i .NET Framework.
+Platform SDK specjalizuje się w tworzeniu aplikacji dla systemów Windows 2000, XP i Windows Server 2003.
+Platform SDK jest następcą oryginalnego Microsoft Windows SDK dla Windows 3.1x i Microsoft Win32 SDK dla Windows 9x. 
+Został wydany w 1999 roku i jest najstarszym SDK. 
+Platform SDK zawiera kompilatory, narzędzia, dokumentacje, pliki nagłówkowe, biblioteki i próbki potrzebne do tworzenia oprogramowania na architekturach procesorów IA-32, x64 i IA-64. 
+
+Zestawy SDK systemu Windows są dostępne za darmo; kiedyś były one dostępne w Centrum pobierania Microsoft, ale w 2012 roku zostały przeniesione do MSDN.
+
+Programista może chcieć użyć starszego zestawu SDK z konkretnego powodu. Na przykład pakiet Windows Server 2003 Platform SDK wydany w lutym 2003 
+roku był ostatnim pakietem SDK zapewniającym pełną obsługę Visual Studio 6.0. Niektóre starsze wersje PSDK można nadal pobrać z Centrum pobierania firmy Microsoft; 
+inne można zamówić na płycie CD/DVD. 
 \subsection{Znajomość funkcji}
 Znajomość najważniejszych funkcji zdefiniowanych w:
-\begin{itemize}
-	\item winsock2.h
-	\item Ws2bth.h
-	\item BluetoothAPIs.h
-\end{itemize}
+\begin{enumerate}
+	\item winsock2.h - najważniejsze funkcje:
+	\begin{itemize}
+		\item accept - zezwolenie na próbę połączenia przychodzącego na gniazdo.
+		\item bind - skojarzenie adresu lokalnego z gniazdem.
+		\item closesocket - zamknięcie istniejącego gniazda.
+	\end{itemize}
+	\item Ws2bth.h - najważniejsze interfejsy:
+	\begin{itemize}
+		\item BTH\_QUERY\_DEVICE - Wykorzystywana przy zapytaniu o obecność urządzenia Bluetooth.
+		\item BTH\_QUERY\_SERVICE - Używana do odpytywania usługi Bluetooth.
+		\item BTH\_SET\_SERVICE - Udostępnia informacje o usłudze dla określonej usługi Bluetooth.
+		\item SOCKADDR\_BTH - Używana w połączeniu z operacjami na gniazdach Bluetooth, zdefiniowanymi przez rodzinę adresów AF\_BTH.
+	\end{itemize}
+	\item BluetoothAPIs.h - najważniejsze interfejsy:
+	\begin{itemize}
+		\item BluetoothGATTAbortReliableWrite - Określa koniec procedur niezawodnego zapisu, a zapisy powinny zostać przerwane.
+		\item BluetoothGATTBeginReliableWrite - Informuje o rozpoczęciu niezawodnego zapisu.
+		\item BluetoothGATTEndReliableWrite - Określa koniec niezawodnych zapisów, które powinny zostać wykonane.
+		\item BluetoothGATTGetCharacteristics - Uzyskuje wszystkie charakterystyki dostępne dla określonej usługi.
+		\item BluetoothGATTGetCharacteristicValue - Uzyskuje wartość określonej charakterystyki.
+		\item BluetoothGATTGetDescriptors - Uzyskuje wszystkie deskryptory dostępne dla określonej charakterystyki.
+		\item BluetoothGATTGetDescriptorValue - Uzyskuje wartość określonego deskryptora.
+		\item BluetoothGATTGetIncludedServices - Uzyskuje wszystkie dołączone usługi dostępne dla danej usługi.
+		\item BluetoothGATTGetServices - Pobiera wszystkie usługi podstawowe dostępne dla danego serwera.
+		\item BluetoothGATTRegisterEvent - Rejestruje procedurę, która ma być wywoływana podczas zdarzenia zmiany wartości cechy na danej charakterystyce identyfikowanej przez jej uchwyt.
+		\item BluetoothGATTSetCharacteristicValue - Zapisuje określoną wartość charakterystyki do urządzenia Bluetooth.
+		\item BluetoothGATTSetDescriptorValue - Zapisuje określoną wartość deskryptora do urządzenia Bluetooth.
+		\item BluetoothGATTUnregisterEvent - Wyrejestrowuje podane zdarzenie zmiany wartości charakterystyki.
+	\end{itemize}
+\end{enumerate}
 \subsection{Ogólnie pojęcie o mechanizmach rejestracji funkcji callbackowych}
+Wywołanie zwrotne (callback) - technika programowania będąca odwrotnością wywołania funkcji. Zwykle korzystanie z właściwości konkretnej biblioteki polega na wywołaniu funkcji (podprogramów) dostarczanych przez tę bibliotekę. W tym przypadku jest odwrotnie: użytkownik jedynie rejestruje funkcję do późniejszego wywołania, natomiast funkcje biblioteki wywołają ją w stosownym dla siebie czasie. 
 \subsection{Zapoznanie się ze specyfikacją komunikacji poprzez BT}
+Bluetooth jest otwartą specyfikacją standardu sieci, która umożliwia bezprzewodową, 
+szybką komunikację na małe odległości między różnymi urządzeniami elektronicznymi (np. 
+telefon komórkowy, PDA, piloty telewizyjne, laptopy, urządzenia peryferyjne) . Specyfikacja 
+ta powstała, aby wyeliminować połączenia kablowe pomiędzy urządzeniami
 \subsection{Protokół transferu plików OBEX}
+OBEX (OBject EXchange [wymiana obiektów]) - protokół komunikacyjny, który ułatwia wymianę obiektów binarnych pomiędzy urządzeniami. 
+Jest on utrzymywany przez Infrared Data Association, ale został również przyjęty przez Bluetooth Special Interest Group i skrzydło SyncML 
+organizacji Open Mobile Alliance (OMA). Jednym z najwcześniejszych popularnych zastosowań OBEX był Palm III.
+Ten PDA i jego liczni następcy używają OBEX do wymiany wizytówek, danych, a nawet aplikacji. Chociaż OBEX został początkowo zaprojektowany 
+dla podczerwieni, obecnie został zaadoptowany przez Bluetooth, a także jest używany przez RS-232, USB, WAP oraz w urządzeniach takich 
+jak smart-peny Livescribe. 
+
 Znajomość poleceń:
 \begin{itemize}
-	\item CONNECT
-	\item PUT
-	\item DISCONNECT
+	\item CONNECT - Połącz
+	\item PUT - Umieść
+	\item DISCONNECT - Rozłącz
 \end{itemize}
 \section{Zadania do wykonania}
 napisać aplikację graficzną, która:
@@ -109,4 +161,5 @@ napisać aplikację graficzną, która:
 	\item Przesłać plik graficzny do urządzenia BT.
 \end{enumerate}
 \section{Wnioski}
+
 \end{document}
