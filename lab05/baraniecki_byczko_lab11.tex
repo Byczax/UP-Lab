@@ -1,0 +1,108 @@
+%!TEX program = xelatex
+%Template created by: Maciej Byczko
+\documentclass[a4paper,12pt]{extarticle}  %typ dokumentu
+
+\usepackage{geometry} %poprawienie marginesów
+\usepackage{polski} %polskie znaki
+\usepackage{graphicx} %grafiki
+\usepackage{float} %poprawienie pozycji
+\usepackage{fancyhdr} % header i footer
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\graphicspath{{pictures/}}
+\geometry{margin=0.7in}
+\pagestyle{fancy}
+\cfoot{Strona \thepage}
+\rhead{Strona \thepage}
+\lhead{\typdoc}
+\setlength{\headheight}{15pt}
+
+\title{\tytul \\ \small{\opis}}
+\author{\tworcy}
+\date{\data}
+
+%-----------------------SEKCJA DANYCH----------------------------------
+\def\tytul{Obsługa karty muzycznej z wykorzystaniem DirectSound, API i ActiveX} %<<< tytuł ćwiczenia
+\def\nrcw{laboratoria 11} %<<< numer ćwiczenia
+\def\data{\today} %<< data wykonania
+\def\prowadzacy{Dr inż. Dominik Żelazny} %<<<prowadzący
+\def\nrgrupy{D} %<<<numer grupy
+\def\tworcy{Baraniecki Karol\\Byczko Maciej} %<<< autorzy
+\def\zajinfo{PT 16:30 TP} %<<< informacje dotyczące zajęć
+\def\typdoc{Sprawozdanie} %<<< typ dokumentu tj Sprawozdanie, zadania itp. {Matematyka dyskretna/Sprawozdanie z Miernictwa}
+\def\opis{} %<<< opis który będzie umieszczony pod tytułem w Maketitle
+%----------------------------------------------------------------------
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{AO}{rgb}{0,0.5,0}
+\definecolor{ZeroBlue}{rgb}{0,0.28,0.73}
+\definecolor{DarkRed}{rgb}{0.85,0.16,0.16}
+
+
+\lstset{
+basicstyle=\footnotesize,
+breaklines=true,
+language=Python,
+numbers=left,
+tabsize=2,
+numberstyle=\tiny,
+backgroundcolor=\color{backcolour},
+breakatwhitespace=false,
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,
+commentstyle=\color{gray},
+keywordstyle=\color{ZeroBlue},
+keepspaces=true,
+% keywordstyle={[2]\color{DarkRed}},
+% keywordstyle={[3]\color{ZeroBlue}},
+}
+
+\begin{document}
+%-------------------------------------TABELA-DANYCH--------------------------------------------------
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|}\hline
+			\begin{tabular}[c]{@{}c@{}}                     \tworcy     \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Prowadzący:\\        \prowadzacy \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Numer ćwiczenia\\    \nrcw       \end{tabular}          \\ \hline
+			\begin{tabular}[c]{@{}c@{}}                     \zajinfo    \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Temat ćwiczenia:\\   \tytul      \end{tabular} & Ocena: \\ \hline
+			\begin{tabular}[c]{@{}c@{}}Grupa:\\          \nrgrupy    \end{tabular}    &
+			\begin{tabular}[c]{@{}c@{}}Data wykonania:\\    \data       \end{tabular} &        \\ \hline
+		\end{tabular}}
+\end{table}
+%----------------------------------------------------------------------------------------------------
+\section{Zagadnienia do opracowania}
+\begin{enumerate}
+	\item Prosty mechanizm odtwarzaniu dźwięku:
+	      \begin{itemize}
+		      \item Komenda PlaySound()
+		      \item Komponent ActiveX 'Windows Media Player':
+	      \end{itemize}
+	\item Plik WAV
+	      \begin{itemize}
+		      \item Rodzaje i formaty nagłówka pliku WAV
+		      \item Informacje przechowywane w nagłówku pliku WAV
+	      \end{itemize}
+	\item Waveform - Komendy typu WaveOut* potrzebne do odtwarzania dźwięku
+	\item DirectSound - DirectX 10.0 Component DirectSound
+\end{enumerate}
+\section{Zadania do wykonania}
+\begin{enumerate}
+	\item Korzystając z przykładowej aplikacji odtworzyć dźwięk za pomocą trzech sposobów: ActiveX,Waveform and Auxiliary Audio i DirectSound.
+	\item Napisać program, odtwarzający dźwięk z wykorzystaniem komendy PlaySound() oraz z wykorzystaniem ActiveX`a.
+	\item Napisać program zczytujący nagłówek WAVa i wyświetlić poszczególne wartości.
+	\item Napisać program odtwarzający WAVa za pomocą DirectSounda i Waveform and Auxiliary Audio z wykorzystaniem komendy waveOutWrite().
+	\item Napisać program odtwarzający wybrany (z listy plików) plik w formacie MP3 (wykorzystać WindowsMediaPlayer)
+	\item Napisać aplikację która sczytuje  z mikrofonu dane i zapisuje je do pliku.
+	\item Zadania uzupełniające (alternatywnie do wyboru):
+	      \begin{itemize}
+		      \item uzupełnić apliakcję odtwrzającą dźwięk za pomocą DirectSound o dodatkowe efekty dźwiękowe (np. panning) - wykorzystać implementację efektów z DirectSound-a
+		      \item wyświetlić na ekranie moc sygnału (np. słupki) dla kilku podprzedziałów częstotliwośc
+	      \end{itemize}
+\end{enumerate}
+\section{Wnioski}
+\end{document}

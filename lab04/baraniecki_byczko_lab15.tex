@@ -1,0 +1,119 @@
+%!TEX program = xelatex
+%Template created by: Maciej Byczko
+\documentclass[a4paper,12pt]{extarticle}  %typ dokumentu
+
+\usepackage{geometry} %poprawienie marginesów
+\usepackage{polski} %polskie znaki
+\usepackage{graphicx} %grafiki
+\usepackage{float} %poprawienie pozycji
+\usepackage{fancyhdr} % header i footer
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\graphicspath{{pictures/}}
+\geometry{margin=0.7in}
+\pagestyle{fancy}
+\cfoot{Strona \thepage}
+\rhead{Strona \thepage}
+\lhead{\typdoc}
+\setlength{\headheight}{15pt}
+
+\title{\tytul \\ \small{\opis}}
+\author{\tworcy}
+\date{\data}
+
+%-----------------------SEKCJA DANYCH----------------------------------
+\def\tytul{Sterowaniem silnikiem krokowym za pomocą USB} %<<< tytuł ćwiczenia
+\def\nrcw{laboratoria 15} %<<< numer ćwiczenia
+\def\data{\today} %<< data wykonania
+\def\prowadzacy{Dr inż. Dominik Żelazny} %<<<prowadzący
+\def\nrgrupy{D} %<<<numer grupy
+\def\tworcy{Baraniecki Karol\\Byczko Maciej} %<<< autorzy
+\def\zajinfo{PT 16:30 TP} %<<< informacje dotyczące zajęć
+\def\typdoc{Sprawozdanie} %<<< typ dokumentu tj Sprawozdanie, zadania itp. {Matematyka dyskretna/Sprawozdanie z Miernictwa}
+\def\opis{} %<<< opis który będzie umieszczony pod tytułem w Maketitle
+%----------------------------------------------------------------------
+
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{AO}{rgb}{0,0.5,0}
+\definecolor{ZeroBlue}{rgb}{0,0.28,0.73}
+\definecolor{DarkRed}{rgb}{0.85,0.16,0.16}
+
+
+\lstset{
+basicstyle=\footnotesize,
+breaklines=true,
+language=Python,
+numbers=left,
+tabsize=2,
+numberstyle=\tiny,
+backgroundcolor=\color{backcolour},
+breakatwhitespace=false,
+showspaces=false,                
+showstringspaces=false,
+showtabs=false,
+commentstyle=\color{gray},
+keywordstyle=\color{ZeroBlue},
+keepspaces=true,
+% keywordstyle={[2]\color{DarkRed}},
+% keywordstyle={[3]\color{ZeroBlue}},
+}
+
+\begin{document}
+%-------------------------------------TABELA-DANYCH--------------------------------------------------
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|c|c|c|}\hline
+			\begin{tabular}[c]{@{}c@{}}                     \tworcy     \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Prowadzący:\\        \prowadzacy \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Numer ćwiczenia\\    \nrcw       \end{tabular}          \\ \hline
+			\begin{tabular}[c]{@{}c@{}}                     \zajinfo    \end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}Temat ćwiczenia:\\   \tytul      \end{tabular} & Ocena: \\ \hline
+			\begin{tabular}[c]{@{}c@{}}Grupa:\\          \nrgrupy    \end{tabular}    &
+			\begin{tabular}[c]{@{}c@{}}Data wykonania:\\    \data       \end{tabular} &        \\ \hline
+		\end{tabular}}
+\end{table}
+%----------------------------------------------------------------------------------------------------
+\section{Zagadnienia do opracowania}
+\begin{enumerate}
+	\item Obsługa API Windows, dołączanie bibliotek w formatach COFF i OMF
+	\item Budowa, zasadza działania oraz sterowanie silnikiem krokowym.
+	\item Zapoznać się z budową i działaniem układu FT245BM oraz modułem zawierającym ten układ Mmusb245 a także ze schematem układu makiety zamieszczonym poniżej.
+	\item Zapoznać się z instrukcją biblioteki FT2XX.dll oraz programatora FTD2XXST.EXE.
+\end{enumerate}
+\section{Zadania do wykonania}
+\begin{enumerate}
+	\item Zapoznaj się z właściwościami systemowymi urządzenia USB sterującego kamerą,
+	      \begin{itemize}
+		      \item (panel sterowania oraz program FTD2XXST.EXE - opcja test. (zwróć uwagę na Vendor ID (VID), Product ID (PID), Description)
+	      \end{itemize}
+
+	\item Uruchom przykładowy program do obsługi sterownika i przetestuj jego możliwości.
+	      \begin{itemize}
+		      \item zaprogramuj układ
+		      \item zresetuj układ
+		      \item zapoznaj się z działaniem jego pozostałych funkcji
+		      \item zbadaj dla jakich parametrów układ działa poprawnie
+		      \item zbadaj jaki wpływ na działanie aplikacji oraz rozpoznawanie urządzenia przez system ma zaprogramowanie oraz resetowanie układu.
+	      \end{itemize}
+
+	\item Do Borland'a C++ Buildera 6.0  skonwertuje bibliotekę FT2XX.dll do postaci OMF. (oryginalny plik FT2XX.lib jest w postaci COFF i nie jest obsługiwany przez ta wersje kompilatora )
+	\item Właściwe ustawienia urządzanie (proszę ich nie przeprogramowywać):
+	      \begin{itemize}
+		      \item Vendor ID = 0403 (VID),
+		      \item Product ID =6001 (PID),
+		      \item Device Description ="usb step motor"
+	      \end{itemize}
+
+	\item Napisz aplikacje umożliwiającą obracanie kamerą w poziomie.
+	\item (Uwaga utrzymywanie przez dłuższy czas zasilania któregokolwiek z uzwojeń silnika może spowodować jego uszkodzenie - proszę pamiętać ze silnik krokowy sterowany jest impulsami, w schemacie jest błąd - dwa piny są zamienione!)
+	\item Wzbogać aplikację o możliwość obracania kamerą w pionie.
+	\item Wzbogać aplikację o możliwość zadawania prędkość obrotu.
+	\item Wzbogać aplikacje o możliwość zadawania ilość kroków.
+	\item Zaproponuj rozwiązanie podłączania wielu urządzeń ze sterownikiem FT245BM do jednego komputera. (dokonaj odpowiednich zmian w kodzie programu).
+	\item Wzbogać obie napisane aplikacje o kontrolę błędów i komunikację z użytkownikiem
+	\item Zresetuj układ do ustawień standardowych.
+\end{enumerate}
+\section{Wnioski}
+\end{document}
