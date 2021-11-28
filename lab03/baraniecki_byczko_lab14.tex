@@ -76,8 +76,7 @@ keepspaces=true,
 \end{table}
 %----------------------------------------------------------------------------------------------------
 \section{Zagadnienia do opracowania}
-\subsection{Zasady korzystania z WinXP SP2 Api (nie z portu szeregowego !!!!!!)}
-SP2 (Service Pack 2) API - Niestety nigdzie nie mogliśmy znaleźć informacji na ten temat.
+% \subsection{Zasady korzystania z WinXP SP2 Api% SP2 (Service Pack 2) API - Niestety nigdzie nie mogliśmy znaleźć informacji na ten temat.
 \subsection{MS Platform SDK}
 zestaw do tworzenia oprogramowania (SDK) firmy Microsoft, który zawiera dokumentację, 
 pliki nagłówkowe, biblioteki, próbki i narzędzia wymagane do tworzenia aplikacji dla systemu Microsoft Windows i .NET Framework.
@@ -151,15 +150,178 @@ napisać aplikację graficzną, która:
 	\item Wykryć adaptery BT podłączone do PC.
 	\item Użyć wybranego adaptera do zdalnego wyszukiwania urządzeń BT.
 	\item Pobrać adres MAC wybranego (wyszukanego w pkt. 2) urządzenia.
+	\begin{figure}[H]
+	   \centering
+	   \resizebox*{\textwidth}{!}{
+		  \includegraphics{discovered-devices.png}
+	   }
+	\end{figure}
+	Nazwa naszego urządzenia to "Byczax"
 	\item Dokonać autoryzacji obu urządzeń:
 	      \begin{itemize}
 		      \item po stronie urządzenia BT autoryzować PC
+			  \begin{figure}[H]
+				 \centering
+				 \resizebox*{\textwidth}{!}{
+					\includegraphics{connect-telefon.png}
+				 }
+			  \end{figure}
 		      \item po stronie PC autoryzować urządzenie BT.
+			  \begin{figure}[H]
+				 \centering
+				 \resizebox*{\textwidth}{!}{
+					\includegraphics{connect-laptop.png}
+				 }
+			  \end{figure}
 	      \end{itemize}
 	\item Uruchomić urządzenie BT w tryb pracy transferu plików.
+	\begin{lstlisting}
+		karol@ktp ~/s5/UP/zaj3 % python3 all.py 7C:F3:1B:77:43:73
+Found 12 services on 7C:F3:1B:77:43:73.
+
+Service Name: None
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    L2CAP
+    channel/PSM: 31
+    svc classes: ['1801']
+    profiles:    []
+    service id:  None
+
+Service Name: None
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    L2CAP
+    channel/PSM: 31
+    svc classes: ['1800']
+    profiles:    []
+    service id:  None
+
+Service Name: Headset Gateway
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    RFCOMM
+    channel/PSM: 2
+    svc classes: ['1112', '1203']
+    profiles:    [('1108', 258)]
+    service id:  None
+
+Service Name: Handsfree Gateway
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    RFCOMM
+    channel/PSM: 3
+    svc classes: ['111F', '1203']
+    profiles:    [('111E', 262)]
+    service id:  None
+
+Service Name: AV Remote Control Target
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    L2CAP
+    channel/PSM: 23
+    svc classes: ['110C']
+    profiles:    [('110E', 259)]
+    service id:  None
+
+Service Name: Advanced Audio
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    L2CAP
+    channel/PSM: 25
+    svc classes: ['110A']
+    profiles:    [('110D', 259)]
+    service id:  None
+
+Service Name: None
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    L2CAP
+    channel/PSM: 23
+    svc classes: ['110E', '110F']
+    profiles:    [('110E', 261)]
+    service id:  None
+
+Service Name: Android Network Access Point
+    Host:        7C:F3:1B:77:43:73
+    Description: NAP
+    Provided By: None
+    Protocol:    L2CAP
+    channel/PSM: 15
+    svc classes: ['1116']
+    profiles:    [('1116', 256)]
+    service id:  None
+
+Service Name: MAP SMS/MMS
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    RFCOMM
+    channel/PSM: 26
+    svc classes: ['1132']
+    profiles:    [('1134', 258)]
+    service id:  None
+
+Service Name: OBEX Phonebook Access Server
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    RFCOMM
+    channel/PSM: 19
+    svc classes: ['112F']
+    profiles:    [('1130', 258)]
+    service id:  None
+
+Service Name: SIM Access
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    RFCOMM
+    channel/PSM: 16
+    svc classes: ['112D', '1204']
+    profiles:    [('112D', 258)]
+    service id:  None
+
+Service Name: OBEX Object Push
+    Host:        7C:F3:1B:77:43:73
+    Description: None
+    Provided By: None
+    Protocol:    RFCOMM
+    channel/PSM: 12
+    svc classes: ['1105']
+    profiles:    [('1105', 258)]
+    service id:  None
+
+
+	\end{lstlisting}
 	\item Przesłać plik tekstowy do urządzenia BT.
+	\begin{figure}[H]
+	   \centering
+	   \resizebox*{\textwidth}{!}{
+		  \includegraphics{send-text-file.png}
+	   }
+	\end{figure}
 	\item Przesłać plik graficzny do urządzenia BT.
+	\begin{figure}[H]
+	   \centering
+	   \resizebox*{\textwidth}{!}{
+		  \includegraphics{sent-graphics-file.png}
+	   }
+	\end{figure}
 \end{enumerate}
 \section{Wnioski}
-
+Bluetooth jest prosty w użyciu, wystarczyło zmienić rozszerzenie.
+Cały kod został napisany w pythonie.\\
+Problemy na które się natknęliśmy to:
+\begin{itemize}
+	\item Urządzenie wariowało gdy próbowało się podłączyć do kilku urządzeń,
+	\item IPhone-y nie posiadają protokołu OBEX do przesyłania plików.
+\end{itemize} 
 \end{document}
