@@ -85,76 +85,76 @@ keepspaces=true,
 %----------------------------------------------------------------------------------------------------
 \section{Zagadnienia do opracowania}
 \begin{enumerate}
-    \item Urządzenia RPI (wersja 4)
-    \item \begin{itemize}
-        \item \href{https://www.raspberrypi.org/}{Raspberry Pi} - platforma komputerowa stworzona przez Raspberry Pi Foundation. Urządzenie składa się z pojedynczego obwodu drukowanego i zostało wymyślone, by wspierać naukę podstaw informatyki.
-        \item interfejs GPIO (numeracja pinów) - Wejście-wyjście ogólnego przeznaczenia, GPIO (od ang. general-purpose input/output), pin interfejsu do komunikacji między elementami systemu komputerowego (na przykład między mikroprocesorem a urządzeniami peryferyjnymi). 
-    \end{itemize}
-    \item Środowisko programistyczne
-    \item \begin{itemize}
-        \item zasady pracy z systemem Linux - NIE WYKONUJ KOMENDY \emph{rm -rf /*}
-        \item interfejs wiring Pi - biblioteka do obsługi GPIO
-        \item język python, zasady instalacji pakietów (pip) - język programowania wysokiego poziomu ogólnego przeznaczenia, o rozbudowanym pakiecie bibliotek standardowych, którego ideą przewodnią jest czytelność i klarowność kodu źródłowego. Jego składnia cechuje się przejrzystością i zwięzłością. 
-        \item sterowanie sygnałami wejściowymi/wyjściowymi
-        \begin{itemize}
-            \item RPi.GPIO - Raspberry Pi GPIO - Moduł do sterowania diodami
-        \end{itemize}
-    \end{itemize}
-    \item Zestaw prototypowy
-    \begin{itemize}
-        \item picoboard - Zestaw prototypowy dla Raspberry Pi 
-        \item zasady podłączania diody - diodę należy podłączyć przez opornik aby się nie spalił pin w Raspberry.
-        \item interfejs 1-wire i czujnik temperatury DS18B20
-    \end{itemize}
+	\item Urządzenia RPI (wersja 4)
+	      \begin{itemize}
+		      \item \href{https://www.raspberrypi.org/}{Raspberry Pi} - platforma komputerowa stworzona przez Raspberry Pi Foundation. Urządzenie składa się z pojedynczego obwodu drukowanego i zostało wymyślone, by wspierać naukę podstaw informatyki.
+		      \item interfejs GPIO (numeracja pinów) - Wejście-wyjście ogólnego przeznaczenia, GPIO (od ang. general-purpose input/output), pin interfejsu do komunikacji między elementami systemu komputerowego (na przykład między mikroprocesorem a urządzeniami peryferyjnymi).
+	      \end{itemize}
+	\item Środowisko programistyczne
+	      \begin{itemize}
+		      \item zasady pracy z systemem Linux - NIE WYKONUJ KOMENDY \emph{rm -rf /*}
+		      \item interfejs wiring Pi - biblioteka do obsługi GPIO
+		      \item język python, zasady instalacji pakietów (pip) - język programowania wysokiego poziomu ogólnego przeznaczenia, o rozbudowanym pakiecie bibliotek standardowych, którego ideą przewodnią jest czytelność i klarowność kodu źródłowego. Jego składnia cechuje się przejrzystością i zwięzłością.
+		      \item sterowanie sygnałami wejściowymi/wyjściowymi
+		            \begin{itemize}
+			            \item RPi.GPIO - Raspberry Pi GPIO - Moduł do sterowania diodami
+		            \end{itemize}
+	      \end{itemize}
+	\item Zestaw prototypowy
+	      \begin{itemize}
+		      \item picoboard - Zestaw prototypowy dla Raspberry Pi
+		      \item zasady podłączania diody - diodę należy podłączyć przez opornik aby się nie spalił pin w Raspberry.
+		      \item interfejs 1-wire i czujnik temperatury DS18B20
+	      \end{itemize}
 \end{enumerate}
 \section{Zadania do wykonania}
 \begin{enumerate}
-    \item Testy urządzenia
-    \begin{itemize}
-        \item podłączyć urządzenia: zasilanie + kabel ethernet
-        %todo wstawić zdjęcie układu
-        \begin{figure}[H]
-           \centering
-           \resizebox*{\textwidth}{!}{
-              \includegraphics{fizyczny.JPG}
-           }
-        \end{figure}
-        \item określenie adresu IP (podłączyć monitor, adres IP podany będzie na ekranie (ew. komenda ifconfig))
-        % todo wstawić screenshot 
-        \begin{figure}[H]
-           \centering
-           \resizebox*{\textwidth}{!}{
-              \includegraphics{ip_address.png}
-           }
-        \end{figure}
-        \item zalogowanie na konsole via putty (proszę nie zmieniać hasła) (dostęp: pi, raspberry)\\
-        Zalogowaliśmy się za pomocą OpenSSH w terminalu, gdyż PuTTY wymaga dodatkowych instalacji a robi to samo.
-        \begin{figure}[H]
-           \centering
-           \resizebox*{\textwidth}{!}{
-              \includegraphics{raspi_ssh.png}
-           }
-        \end{figure}
-    \end{itemize}
-    
-    \item Sterowanie diodą 
-    \begin{itemize}
-        \item podłączenie diody i rezystora do RPi (przed podłączaniem zasilania proszę poprosić prowadzącego o sprawdzenie połączeń)
-        \begin{figure}[H]
-           \centering
-           \resizebox*{\textwidth}{!}{
-              \includegraphics{diagram_polaczenia.pdf}
-           }
-        \end{figure}
-        \item sterowanie z poziomu programu gpio
-        \begin{lstlisting}[language = Bash]
+	\item Testy urządzenia
+	      \begin{itemize}
+		      \item podłączyć urządzenia: zasilanie + kabel ethernet
+		            %todo wstawić zdjęcie układu
+		            \begin{figure}[H]
+			            \centering
+			            \resizebox*{\textwidth}{!}{
+				            \includegraphics{fizyczny.JPG}
+			            }
+		            \end{figure}
+		      \item określenie adresu IP (podłączyć monitor, adres IP podany będzie na ekranie (ew. komenda ifconfig))
+		            % todo wstawić screenshot 
+		            \begin{figure}[H]
+			            \centering
+			            \resizebox*{\textwidth}{!}{
+				            \includegraphics{ip_address.png}
+			            }
+		            \end{figure}
+		      \item zalogowanie na konsole via putty (proszę nie zmieniać hasła) (dostęp: pi, raspberry)\\
+		            Zalogowaliśmy się za pomocą OpenSSH w terminalu, gdyż PuTTY wymaga dodatkowych instalacji a robi to samo.
+		            \begin{figure}[H]
+			            \centering
+			            \resizebox*{\textwidth}{!}{
+				            \includegraphics{raspi_ssh.png}
+			            }
+		            \end{figure}
+	      \end{itemize}
+
+	\item Sterowanie diodą
+	      \begin{itemize}
+		      \item podłączenie diody i rezystora do RPi (przed podłączaniem zasilania proszę poprosić prowadzącego o sprawdzenie połączeń)
+		            \begin{figure}[H]
+			            \centering
+			            \resizebox*{\textwidth}{!}{
+				            \includegraphics{diagram_polaczenia.pdf}
+			            }
+		            \end{figure}
+		      \item sterowanie z poziomu programu gpio
+		            \begin{lstlisting}[language = Bash]
 gpio -1 mode 40 out # ustawienie pinu jako wyjscie
 gpio -1 write 40 1 # wlaczenie diody
 gpio -1 write 40 0 # wylaczenie diody
 gpio -1 blink 40 # wlaczenie trybu migania diody
 \end{lstlisting}
-        \item program w pythonie 
-        \begin{lstlisting}[language = Python]
+		      \item program w pythonie
+		            \begin{lstlisting}[language = Python]
 import time
 import RPi.GPIO as GPIO
 
@@ -168,7 +168,7 @@ while True:
     time.sleep(0.1)
     GPIO.output(PIN, 1)
         \end{lstlisting}
-    \end{itemize}
+	      \end{itemize}
 \end{enumerate}
 
 \section{Wnioski}
