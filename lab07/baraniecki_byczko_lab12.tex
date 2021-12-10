@@ -81,13 +81,19 @@ keepspaces=true,
 	\item USB w Windows (standard USB, Interface HID - ogólnie)
 	\item Zasada działania kamery USB
 	\item Metody obsługi kamery USB (AVICAP32.DLL, TWAIN, WIA 1.0, WIA 2.0)
-	\item Sposób wykorzystania bilbliotek DLL w aplikacji tworzonej w środowisku Visual Studio 2005 lub 2008
+	\item Sposób wykorzystania bibliotek DLL w aplikacji tworzonej w środowisku Visual Studio 2005 lub 2008
 	\item Poznanie API32 biblioteki AVICAP32.DLL (podstawowe funkcje i stałe)
 	\item Poznanie API do WIA
 \end{enumerate}
 \section{Zadania do wykonania}
 \begin{enumerate}
 	\item Korzystając z przykładowej aplikacji stwierdzić obecność i poprawność kamery podłączonej do portu USB komputera (aplikacja testowa)
+	\begin{figure}[H]
+	   \centering
+	   \resizebox*{\textwidth}{!}{
+		  \includegraphics{aplikacja_testowa.png}
+	   }
+	\end{figure}
 	\item Wylistuj urządzenia typu cap (kamery) i stwórz interfejs umożliwiający wybór po nazwie urządzenia (drivera) z którym chcesz sie połączyć
 	\item Połącz się z wybranym urządzeniem i za pomocą odpowiednich komunikatów łączących się z driverami kamery - skonfiguruj ją.
 	      \begin{itemize}
@@ -99,7 +105,7 @@ keepspaces=true,
 	      \begin{itemize}
 		      \item zmień tak program z zadania 3 aby generował stronę html z odświeżanym automatycznie obrazem z kamery
 		      \item dodaj opcje która w przypadku gdy kamera potrzebuje swoich własnych sterowników automatycznie po włączeniu programu instaluje je; po poznaniu sterowników kamery należy znaleźć plik inf, które zostanie odpowiednio uruchomiony przez program (ShellExecute)
-		      \item stwórz prosty detektor ruchu - poprzez analizę obrazu z kamery w czasie rzeczywistym (wystarczy sprawdzać zmiany koloru kilku punktów (pikseli), ćwiczenie można rozwinąc o najprostsze algorytmy wykrywające krawędzie etc.)
+		      \item stwórz prosty detektor ruchu - poprzez analizę obrazu z kamery w czasie rzeczywistym (wystarczy sprawdzać zmiany koloru kilku punktów (pikseli), ćwiczenie można rozwinąć o najprostsze algorytmy wykrywające krawędzie etc.)
 	      \end{itemize}
 	\item Alternatywne metody wykonania zadanie (po uzgodnieniu z prowadzącym):
 	      \begin{itemize}
