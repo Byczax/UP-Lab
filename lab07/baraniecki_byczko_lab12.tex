@@ -88,33 +88,103 @@ keepspaces=true,
 \section{Zadania do wykonania}
 \begin{enumerate}
 	\item Korzystając z przykładowej aplikacji stwierdzić obecność i poprawność kamery podłączonej do portu USB komputera (aplikacja testowa)
-	\begin{figure}[H]
-	   \centering
-	   \resizebox*{\textwidth}{!}{
-		  \includegraphics{aplikacja_testowa.png}
-	   }
-	\end{figure}
-	\item Wylistuj urządzenia typu cap (kamery) i stwórz interfejs umożliwiający wybór po nazwie urządzenia (drivera) z którym chcesz sie połączyć
-	\item Połącz się z wybranym urządzeniem i za pomocą odpowiednich komunikatów łączących się z driverami kamery - skonfiguruj ją.
+	      \begin{figure}[H]
+		      \centering
+		      \resizebox*{\textwidth}{!}{
+			      \includegraphics{aplikacja_testowa.png}
+		      }
+			  \caption{Screenshot obrazu z kamery w aplikacji testowej}
+	      \end{figure}
+	      % \item Wylistuj urządzenia typu cap (kamery) i stwórz interfejs umożliwiający wybór po nazwie urządzenia (drivera) z którym chcesz sie połączyć
+	\item Połącz się z urządzeniem i za pomocą odpowiednich komunikatów łączących się z driverami kamery - skonfiguruj ją.
 	      \begin{itemize}
 		      \item Za pomocą programu powinno dać się zmieniać opcje kamery (rozdzielczość obrazu, nasycenie, kontrast, ew. zoom, sterowanie kamera etc.)
+\begin{itemize}
+	\item a/A - Alpha +/-
+	\item b/B - Beta +/-
+	\item z/Z - Zoom +/-
+\end{itemize}
 		      \item Zapisz obraz z kamery w dowolnym formacie (wskazany JPG)
+			  \begin{lstlisting}
+os.makedirs("screens", exist_ok=True)              
+filename = datetime.datetime.isoformat(datetime.datetime.now()).replace(":","")
+cv.imwrite(f"screens/{filename}.png", frame)
+\end{lstlisting}
+			  Za pomocą klawisza "s" robimy zdjęcie kamery i obraz zapisujemy w folderze screens, w nazwie pliku jest zawarta data oraz godzina zrobienia zdjęcia.
 		      \item Zapisz obraz z kamery w postaci filmu AVI
+		            \begin{lstlisting}
+recording = False
+recorder = cv.VideoWriter("Film.avi", 0, 20, (width, height))
+\end{lstlisting}
+		            Za pomocą klawisza "r" uruchamiamy nagrywanie, ponowne naciśnięcie klawisza "r" zatrzymuje nagrywanie.
 	      \end{itemize}
 	\item Rozbuduj program o:
 	      \begin{itemize}
-		      \item zmień tak program z zadania 3 aby generował stronę html z odświeżanym automatycznie obrazem z kamery
-		      \item dodaj opcje która w przypadku gdy kamera potrzebuje swoich własnych sterowników automatycznie po włączeniu programu instaluje je; po poznaniu sterowników kamery należy znaleźć plik inf, które zostanie odpowiednio uruchomiony przez program (ShellExecute)
+		    %   \item zmień tak program z zadania 3 aby generował stronę html z odświeżanym automatycznie obrazem z kamery
+		    %   \item dodaj opcje która w przypadku gdy kamera potrzebuje swoich własnych sterowników automatycznie po włączeniu programu instaluje je; po poznaniu sterowników kamery należy znaleźć plik inf, które zostanie odpowiednio uruchomiony przez program (ShellExecute)
 		      \item stwórz prosty detektor ruchu - poprzez analizę obrazu z kamery w czasie rzeczywistym (wystarczy sprawdzać zmiany koloru kilku punktów (pikseli), ćwiczenie można rozwinąć o najprostsze algorytmy wykrywające krawędzie etc.)
+\begin{lstlisting}
+# motion detection
+if detect:
+	if prev_frame is not None: # don't compare with empty frame
+		
+		# change to grayscale
+		prev_frame = cv.cvtColor(prev_frame, cv.COLOR_BGR2GRAY)
+		frame_copy = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
+		# remove sharp edges
+		prev_frame = cv.GaussianBlur(prev_frame, (21, 21), 0)
+		frame_copy = cv.GaussianBlur(frame_copy, (21, 21), 0)
+
+		# compare frames
+		delta_frame = cv.absdiff(prev_frame, frame_copy)
+		
+		# mark different pixels
+		thresh_frame = cv.threshold(delta_frame, 5, 255, cv.THRESH_BINARY)[1]
+		cv.dilate(thresh_frame, None, iterations=2)
+
+		contours, _ = cv.findContours(thresh_frame, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+
+		# create rectangles on captured motion
+		rectangles = []
+		for c in contours:
+			if cv.contourArea(c) < 1 / 750 * width * height:
+				continue
+			rectangles.append(cv.boundingRect(c))
+
+		frame_copy = frame.copy()
+		for rect in rectangles:
+			x = rect[0]
+			y = rect[1]
+			w = rect[2]
+			h = rect[3]
+			cv.rectangle(frame_copy, (x, y), (x + w, y + h), (255, 0, 0), 2)
+		cv.imshow(title, frame_copy)
+
+prev_frame = frame
+\end{lstlisting}
+\begin{figure}[H]
+   \centering
+   \resizebox*{\textwidth}{!}{
+	  \includegraphics{./motion_detection.png}
+   }
+   \caption{Przykładowe zdjęcie wykonane za pomocą programu wraz z wykryciem ruchu}
+   %\label{pic:}
+\end{figure}
+
 	      \end{itemize}
-	\item Alternatywne metody wykonania zadanie (po uzgodnieniu z prowadzącym):
-	      \begin{itemize}
-		      \item AVICAP 32
-		      \item wykorzystać Direct X (Direct Show)
-		      \item wykorzystując WIA 1.0
-		      \item wykorzystując WIA 2.0
-		      \item wykorzystując WPD Automation Object Model
-	      \end{itemize}
+	% \item Alternatywne metody wykonania zadanie (po uzgodnieniu z prowadzącym):
+	%       \begin{itemize}
+	% 	      \item AVICAP 32
+	% 	      \item wykorzystać Direct X (Direct Show)
+	% 	      \item wykorzystując WIA 1.0
+	% 	      \item wykorzystując WIA 2.0
+	% 	      \item wykorzystując WPD Automation Object Model
+	%       \end{itemize}
 \end{enumerate}
 \section{Wnioski}
+Wszystkie podpunkty były w miarę proste ponieważ biblioteka OpenCV w pythonie oferuje wszystkie wymagane funkcjonalności jako funkcje do bezpośredniego użycia.
+Jedynie wykrywanie ruchu było trochę bardziej skomplikowane ponieważ wymagało od nas wykonania obliczeń,
+aby zmniejszyć ilość potrzebnej mocy obliczeniowej to zamieniliśmy obraz na skalę szarości i usunęliśmy ostre krawędzie aby wykrywanie ruchu było łatwiejsze, lecz nie jest to narzędzie idealne.
+
 \end{document}
